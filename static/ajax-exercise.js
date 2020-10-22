@@ -6,6 +6,9 @@
 function showFortune(evt) {
 
     // TODO: get the fortune and show it in the #fortune-text div
+    $.get('/fortune', (response) => {
+        $('#fortune-text').html(response);
+    })
 }
 
 $('#get-fortune-button').on('click', showFortune);
@@ -24,6 +27,9 @@ function showWeather(evt) {
 
 
     // TODO: request weather with that URL and show the forecast in #weather-info
+    $.get(url, formData, (response) => {
+      $("#weather-info").html(response.forecast);
+    });
 }
 
 $("#weather-form").on('submit', showWeather);
